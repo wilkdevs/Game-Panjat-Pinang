@@ -17,43 +17,53 @@ function closeTerms() {
 function loadImageWithProgress(imageUrl, callback) {
     loadingContainer.style.display = 'flex';
 
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += 5;
-        if (progress <= 100) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", imageUrl, true);
+    xhr.responseType = "blob";
+
+    xhr.onprogress = function (event) {
+        if (event.lengthComputable) {
+            let percent = Math.round((event.loaded / event.total) * 100);
+
             if (loadingBar) {
-                loadingBar.style.width = `${progress}%`;
+                loadingBar.style.width = percent + "%";
             }
             if (loadingMessage) {
-                loadingMessage.textContent = `${progress}%`;
+                loadingMessage.textContent = percent + "%";
             }
-        } else {
-            clearInterval(interval);
         }
-    }, 100);
-
-    const image = new Image();
-    image.src = imageUrl;
-
-    image.onload = function() {
-        clearInterval(interval);
-        if (loadingBar) {
-            loadingBar.style.width = '100%';
-        }
-        if (loadingMessage) {
-            loadingMessage.textContent = '100%';
-        }
-
-        setTimeout(() => {
-
-            callback(image);
-
-            // Hide the entire loading container
-            if (loadingContainer) {
-                loadingContainer.style.display = 'none';
-            }
-        }, 500);
     };
+
+    xhr.onload = function () {
+        if (this.status === 200) {
+            const blob = this.response;
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                // reader.result = Base64 string
+                const image = new Image();
+                image.src = reader.result;
+                image.onload = function () {
+                    if (loadingContainer) {
+                        loadingContainer.style.display = "none";
+                    }
+
+                    callback(image); // returns base64 src
+                };
+            };
+
+            reader.readAsDataURL(blob);
+        }
+    };
+
+    xhr.onerror = function () {
+        console.error("Image failed to load.");
+        if (loadingMessage) {
+            loadingMessage.textContent = "Error loading image";
+        }
+    };
+
+    xhr.send();
 }
 
 // Example usage:
