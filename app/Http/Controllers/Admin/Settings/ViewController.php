@@ -100,8 +100,7 @@ class ViewController extends Controller
 
         $data['value'] = NULL;
 
-        // SettingModel::where('key', $key)->update($data);
-        SettingModel::where('key', $key)->delete();
+        SettingModel::where('key', $key)->update($data);
 
         session()->flash('success', 'Successfully reset settings');
 
