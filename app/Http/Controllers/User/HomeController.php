@@ -85,9 +85,11 @@ class HomeController extends Controller
         // Create the grouped collection from the $gifts variable.
         $giftsGroupedCategory = $gifts->groupBy('category.name');
 
-        $voucher->load('gift');
-
-        dd($voucher->gift()->first());
+        if ($voucher) {
+            $voucher->load('gift');
+            $voucher->gift = $voucher->gift()->first();
+            dd($voucher->gift->name);
+        }
 
         return view('/pages/user/index', [
             'title' => $title,
