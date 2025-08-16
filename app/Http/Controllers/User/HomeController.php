@@ -88,6 +88,7 @@ class HomeController extends Controller
         if ($voucher) {
             $voucher->load('gift');
             $voucher->gift = $voucher->gift()->first();
+            dd($voucher->gift->image);
         }
 
         return view('/pages/user/index', [
