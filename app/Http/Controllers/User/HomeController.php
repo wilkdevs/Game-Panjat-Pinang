@@ -85,6 +85,8 @@ class HomeController extends Controller
         // Create the grouped collection from the $gifts variable.
         $giftsGroupedCategory = $gifts->groupBy('category.name');
 
+        dd($voucher);
+
         return view('/pages/user/index', [
             'title' => $title,
             'metatag' => $metatag,
