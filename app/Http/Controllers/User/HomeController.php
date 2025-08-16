@@ -89,6 +89,10 @@ class HomeController extends Controller
 
         $voucher->load('gift');
 
+        $voucher = VoucherModel::with(['gift' => function ($q) {
+            $q->withTrashed();
+        }])->find($voucher->id);
+
         dd($voucher->gift->name);
 
         return view('/pages/user/index', [
