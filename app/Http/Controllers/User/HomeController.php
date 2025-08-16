@@ -57,6 +57,8 @@ class HomeController extends Controller
 
                 $voucher = VoucherModel::with('gift')->find($voucher->id);
 
+                $voucher->load('gift');
+
                 session()->flash('success', 'Berhasil klaim hadiah!');
             } else {
                 session()->flash('error', 'Kode voucher tidak ditemukan \n atau sudah digunakan.');
