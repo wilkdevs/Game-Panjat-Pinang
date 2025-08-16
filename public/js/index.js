@@ -75,6 +75,8 @@ if (voucher) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    if (voucher == null) return;
+
     const spinButton = document.getElementById('spin-button');
     const spinWheel = document.getElementById('spin-wheel');
     const giftsContainer = document.querySelector('.surrounding-gifts-container');

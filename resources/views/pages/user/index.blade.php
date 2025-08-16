@@ -204,7 +204,7 @@
         var prizes = @json($gifts);
     </script>
     <script src="js/utils.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/index.js?v=8"></script>
 
     @if(session()->has('success'))
         <script type="text/javascript">
