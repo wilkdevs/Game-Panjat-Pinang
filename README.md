@@ -1,1 +1,1 @@
-# Game Panjang Pinang
+# Game Panjat Pinang
