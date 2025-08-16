@@ -87,6 +87,10 @@ class HomeController extends Controller
 
         $voucher->load('gift');
 
+        $gift = GiftModel::find($voucher->gift_id);
+
+        $voucher->gift = $gift;
+
         dd($voucher->gift); // but not here
 
         return view('/pages/user/index', [
