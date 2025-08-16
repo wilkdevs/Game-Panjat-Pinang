@@ -55,8 +55,7 @@ class HomeController extends Controller
 
                 $voucher->save();
 
-                // $voucher = VoucherModel::with('gift')->find($voucher->id);
-                $voucher->load('gift');
+                $voucher = VoucherModel::with('gift')->find($voucher->id);
 
                 session()->flash('success', 'Berhasil klaim hadiah!');
             } else {
@@ -85,6 +84,8 @@ class HomeController extends Controller
 
         // Create the grouped collection from the $gifts variable.
         $giftsGroupedCategory = $gifts->groupBy('category.name');
+
+        $voucher->load('gift');
 
         dd($voucher->gift); // but not here
 
