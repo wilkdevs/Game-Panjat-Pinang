@@ -89,7 +89,7 @@ class HomeController extends Controller
 
         $voucher->load('gift');
 
-        dd($voucher->gift()->image);
+        dd($voucher->gift()->value('name'));
 
         return view('/pages/user/index', [
             'title' => $title,
