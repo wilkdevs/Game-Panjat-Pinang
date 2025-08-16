@@ -236,7 +236,7 @@ html, body {
 }
 
 /* Modal Overlay Styles */
-.terms-modal-overlay {
+.main-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -252,7 +252,7 @@ html, body {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.terms-modal-overlay.active {
+.main-modal-overlay.active {
     opacity: 1;
     visibility: visible;
 }
@@ -272,7 +272,7 @@ html, body {
     transition: transform 0.3s ease;
 }
 
-.terms-modal-overlay.active .modal-content {
+.main-modal-overlay.active .modal-content {
     transform: scale(1);
 }
 
@@ -493,48 +493,6 @@ html, body {
     width: 100%;
     max-width: 500px;
     justify-content: center;
-}
-
-/* Modal Overlay and Content (already good, just for completeness) */
-.prize-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.prize-modal-overlay.active {
-    visibility: visible;
-    opacity: 1;
-}
-
-.prize-modal-content {
-    background: #ffffff; /* Use a clean white background */
-    padding: 10px;
-    margin: 10px;
-    border-radius: 12px;
-    max-width: 90%;
-    max-height: 85%; /* Slightly larger for more content */
-    overflow-y: auto;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* A nice, subtle shadow */
-}
-
-.prize-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 15px;
 }
 
 /* New: Improved Category Group and Header */

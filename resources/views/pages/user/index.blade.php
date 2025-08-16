@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="{{ isset($settings['faviconImage']) ? $settings['faviconImage'] : $settings['faviconImageDefault'] }}">
     <link rel="canonical" href="{{ url()->full() }}">
 
-    <link rel="stylesheet" href="/css/index.css?v=6">
+    <link rel="stylesheet" href="/css/index.css?v=7">
     <link rel="stylesheet" href="/css/notify.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -146,7 +146,7 @@
                 </div>
             </div>
 
-            <div class="terms-modal-overlay" id="termsModal">
+            <div class="main-modal-overlay" id="termsModal">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3>Syarat & Ketentuan</h3>
@@ -162,15 +162,15 @@
                 </div>
             </div>
 
-            <div id="prizeListModal" class="prize-modal-overlay">
-                <div class="prize-modal-content">
-                    <div class="prize-modal-header">
+            <div id="prizeListModal" class="main-modal-overlay">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h3>List Hadiah</h3>
                         <button onclick="hidePrizeList()" class="close-btn">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
-                    <div class="prize-modal-body">
+                    <div class="modal-body">
                         @foreach ($giftsGroupedCategory as $categoryName => $groupedGifts)
                             <div class="category-group">
                                 <button class="category-header toggle-btn" data-category="{{ $categoryName }}">
