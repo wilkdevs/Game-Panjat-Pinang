@@ -201,7 +201,7 @@
         var voucher = {!! isset($voucher) ? json_encode($voucher) : 'null' !!};
         var gift = {!! isset($voucher) ? json_encode($voucher->gift) : 'null' !!};
         if (voucher && gift) {
-            voucher->gift = gift;
+            voucher["gift"] = gift;
         }
         console.log(voucher);
     </script>
