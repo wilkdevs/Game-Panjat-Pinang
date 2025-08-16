@@ -89,7 +89,13 @@ class HomeController extends Controller
 
         $gift = GiftModel::find($voucher->gift_id);
 
-        $voucher->gift = $gift;
+        if (!isset($voucher->gift)) {
+            $voucher->gift()->associate($gift);
+        }
+
+        if (!isset($voucher->gift)) {
+            $voucher->gift = $gift;
+        }
 
         return view('/pages/user/index', [
             'title' => $title,
