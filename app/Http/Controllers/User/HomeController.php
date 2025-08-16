@@ -50,8 +50,6 @@ class HomeController extends Controller
 
                     $gift_choosen = $giftsWithProbability[$indexChoosen];
 
-                    dd($gift_choosen);
-
                     $voucher->gift_id = $gift_choosen->id;
                 }
 
