@@ -152,7 +152,8 @@ html, body {
 }
 
 .input-group input {
-    flex-grow: 1; /* Makes the input field take up available space */
+    flex: 1; /* makes input flexible */
+    min-width: 0; /* prevents overflow */
     padding: 12px 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -174,10 +175,12 @@ html, body {
 
 /* Button Styling */
 .submit-btn {
+    flex-shrink: 0; /* prevent shrinking */
+    width: 120px; /* fixed width */
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
-    background: #ff5722; /* A vibrant orange */
+    background: #ff5722; /* vibrant orange */
     color: white;
     font-size: 1rem;
     font-weight: 600;
@@ -185,6 +188,7 @@ html, body {
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: flex;
     align-items: center;
+    justify-content: center; /* center icon + text */
     gap: 8px;
 }
 
