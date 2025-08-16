@@ -79,10 +79,10 @@
                                             {{ $item->name }}
                                         </td>
 
-                                        <td class="text-center">{{ $item->gift_id ?? '-' }}</td>
+                                        <td class="text-center">{{ $item->info ?? '-' }}</td>
 
-                                        <td class="text-center {{ $item->gift ? 'text-success' : 'text-danger' }}">
-                                            {{ $item->gift->name ?? '(Belum Dipilih)' }}
+                                        <td class="text-center {{ $item->gift_id ? 'text-success' : 'text-danger' }}">
+                                            {{ $item->gift()->value("name") ?? '(Belum Dipilih)' }}
                                         </td>
 
                                         <td class="text-center {{ $item->status === 'claimed' ? 'text-success' : 'text-warning' }}">
