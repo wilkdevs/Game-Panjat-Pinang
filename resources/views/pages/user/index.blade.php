@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="{{ isset($settings['faviconImage']) ? $settings['faviconImage'] : $settings['faviconImageDefault'] }}">
     <link rel="canonical" href="{{ url()->full() }}">
 
-    <link rel="stylesheet" href="/css/index.css?v=7">
+    <link rel="stylesheet" href="/css/index.css?v=8">
     <link rel="stylesheet" href="/css/notify.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

@@ -513,7 +513,7 @@ html, body {
 /* Improved Gift Grid */
 .gift-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); /* Slightly larger cards */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Slightly larger cards */
     gap: 20px; /* More space between cards */
 }
 
