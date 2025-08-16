@@ -55,7 +55,9 @@ class HomeController extends Controller
 
                 $voucher->save();
 
-                $voucher = VoucherModel::with('gift')->find($voucher->id);
+                $voucher = VoucherModel::with(['gift' => function ($q) {
+                    $q->withTrashed();
+                }])->find($voucher->id);
 
                 session()->flash('success', 'Berhasil klaim hadiah!');
             } else {
