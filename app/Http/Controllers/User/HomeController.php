@@ -27,7 +27,7 @@ class HomeController extends Controller
 
             if ($voucher) {
 
-                $voucher->status = "claimed";
+                // $voucher->status = "claimed";
 
                 if (!isset($voucher->gift_id)) {
 
