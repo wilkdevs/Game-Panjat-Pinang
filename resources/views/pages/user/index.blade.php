@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="{{ isset($settings['faviconImage']) ? $settings['faviconImage'] : $settings['faviconImageDefault'] }}">
     <link rel="canonical" href="{{ url()->full() }}">
 
-    <link rel="stylesheet" href="/css/index.css?v=9">
+    <link rel="stylesheet" href="/css/index.css?v=10">
     <link rel="stylesheet" href="/css/notify.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -201,12 +201,10 @@
     <script>
         var server_settings = {!! json_encode($settings) !!};
         var voucher = {!! isset($voucher) ? json_encode($voucher) : 'null' !!};
-        // console.log('Voucher:', voucher.gift);
-        // console.log('Voucher:', voucher.gift.image);
         var prizes = @json($gifts);
     </script>
     <script src="js/utils.js"></script>
-    <script src="js/index.js?v=9"></script>
+    <script src="js/index.js?v=10"></script>
 
     @if(session()->has('success'))
         <script type="text/javascript">

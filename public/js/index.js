@@ -17,53 +17,43 @@ function closeTerms() {
 function loadImageWithProgress(imageUrl, callback) {
     loadingContainer.style.display = 'flex';
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", imageUrl, true);
-    xhr.responseType = "blob";
-
-    xhr.onprogress = function (event) {
-        if (event.lengthComputable) {
-            let percent = Math.round((event.loaded / event.total) * 100);
-
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += 5;
+        if (progress <= 100) {
             if (loadingBar) {
-                loadingBar.style.width = percent + "%";
+                loadingBar.style.width = `${progress}%`;
             }
             if (loadingMessage) {
-                loadingMessage.textContent = percent + "%";
+                loadingMessage.textContent = `${progress}%`;
             }
+        } else {
+            clearInterval(interval);
         }
-    };
+    }, 100);
 
-    xhr.onload = function () {
-        if (this.status === 200) {
-            const blob = this.response;
-            const reader = new FileReader();
+    const image = new Image();
+    image.src = imageUrl;
 
-            reader.onloadend = function () {
-                // reader.result = Base64 string
-                const image = new Image();
-                image.src = reader.result;
-                image.onload = function () {
-                    if (loadingContainer) {
-                        loadingContainer.style.display = "none";
-                    }
-
-                    callback(image); // returns base64 src
-                };
-            };
-
-            reader.readAsDataURL(blob);
+    image.onload = function() {
+        clearInterval(interval);
+        if (loadingBar) {
+            loadingBar.style.width = '100%';
         }
-    };
-
-    xhr.onerror = function () {
-        console.error("Image failed to load.");
         if (loadingMessage) {
-            loadingMessage.textContent = "Error loading image";
+            loadingMessage.textContent = '100%';
         }
-    };
 
-    xhr.send();
+        setTimeout(() => {
+
+            callback(image);
+
+            // Hide the entire loading container
+            if (loadingContainer) {
+                loadingContainer.style.display = 'none';
+            }
+        }, 500);
+    };
 }
 
 // Example usage:
