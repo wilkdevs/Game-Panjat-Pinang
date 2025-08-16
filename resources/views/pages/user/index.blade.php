@@ -198,8 +198,12 @@
     <script src="/js/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var server_settings = {!! json_encode($settings) !!};
         var voucher = {!! isset($voucher) ? json_encode($voucher) : 'null' !!};
+        console.log(voucher);
+    </script>
+
+    <script>
+        var server_settings = {!! json_encode($settings) !!};
         var prizes = @json($gifts);
     </script>
     <script src="js/utils.js"></script>
