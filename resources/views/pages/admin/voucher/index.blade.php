@@ -79,7 +79,7 @@
                                             {{ $item->name }}
                                         </td>
 
-                                        <td class="text-center">{{ $item->info ?? '-' }}</td>
+                                        <td class="text-center">{{ $item->gift_id ?? '-' }}</td>
 
                                         <td class="text-center {{ $item->gift ? 'text-success' : 'text-danger' }}">
                                             {{ $item->gift->name ?? '(Belum Dipilih)' }}
