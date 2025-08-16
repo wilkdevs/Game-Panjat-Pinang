@@ -32,7 +32,6 @@ class HomeController extends Controller
                 if (!isset($voucher->gift_id)) {
 
                     $giftsWithProbability = GiftModel::with('category')
-                        ->where('probability', '>', 0)
                         ->whereNull('deleted_at')
                         ->where('active', 1)
                         ->orderBy('created_at')
