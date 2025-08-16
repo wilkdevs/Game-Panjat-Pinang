@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const spinWheel = document.getElementById('spin-wheel');
     const giftsContainer = document.querySelector('.surrounding-gifts-container');
     const gifts = giftsContainer.querySelectorAll('.surrounding-gift');
+    const prizeContainer = document.querySelector('.prize-container');
 
     // Modal elements
     const prizeModal = document.getElementById('prize-modal');
@@ -107,6 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Call the positioning function on page load
     positionGifts();
+
+    prizeContainer.addEventListener('click', function() {
+        if (spinButton.disabled) return; // Prevent multiple clicks
+        spinButton.click(); // simulate button click
+    });
 
     // Handle the spin animation and prize reveal
     spinButton.addEventListener('click', function() {

@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="{{ isset($settings['faviconImage']) ? $settings['faviconImage'] : $settings['faviconImageDefault'] }}">
     <link rel="canonical" href="{{ url()->full() }}">
 
-    <link rel="stylesheet" href="/css/index.css?v=10">
+    <link rel="stylesheet" href="/css/index.css?v=12">
     <link rel="stylesheet" href="/css/notify.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
 
-                    <p class="prize-message">kamu telah memanjat pinang nya, ambil hadiah mu</p>
+                    <p class="prize-message">{{ $settings["spinStartDecs"] }}</p>
 
                     <div class="action-buttons-group">
                         <a href="/" class="action-btn secondary" role="button">
@@ -64,8 +64,7 @@
                             <span>Kembali</span>
                         </a>
                         <button id="spin-button" class="action-btn primary">
-                            <i class="fas fa-play"></i>
-                            <span>Cabut Hadiah Mu</span>
+                            <span>{{ $settings['spinBtnText'] }}</span>
                         </button>
                     </div>
                 </div>
@@ -204,7 +203,7 @@
         var prizes = @json($gifts);
     </script>
     <script src="js/utils.js"></script>
-    <script src="js/index.js?v=10"></script>
+    <script src="js/index.js?v=12"></script>
 
     @if(session()->has('success'))
         <script type="text/javascript">

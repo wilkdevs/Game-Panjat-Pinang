@@ -144,6 +144,28 @@ class SettingSeeder extends Seeder
                 'created_at' => '2025-07-22 07:55:50',
                 'updated_at' => '2025-07-26 04:54:11',
             ],
+            [
+                'id' => '55',
+                'key' => 'spinBtnText',
+                'title' => 'Teks Tombol Spin',
+                'value' => "Klik Disini untuk Cabut Hadiah",
+                'default_value' => "Klik Disini untuk Cabut Hadiah",
+                'type' => 'text',
+                'active' => 1,
+                'created_at' => '2025-07-22 07:55:50',
+                'updated_at' => '2025-07-26 04:54:11',
+            ],
+            [
+                'id' => '56',
+                'key' => 'spinStartDecs',
+                'title' => 'Teks Mulai Game',
+                'value' => "kamu telah memanjat pinang nya, ambil hadiah mu",
+                'default_value' => "kamu telah memanjat pinang nya, ambil hadiah mu",
+                'type' => 'text',
+                'active' => 1,
+                'created_at' => '2025-07-22 07:55:50',
+                'updated_at' => '2025-07-26 04:54:11',
+            ],
         ]);
     }
 }
