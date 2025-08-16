@@ -198,7 +198,7 @@
     <script src="/js/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var voucher = {!! isset($voucher) ? json_encode($voucher) : 'null' !!};
+        var voucher = {!! isset($voucher) ? json_encode($voucher->gift) : 'null' !!};
         console.log(voucher);
     </script>
 
