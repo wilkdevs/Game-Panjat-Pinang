@@ -36,20 +36,20 @@
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="invalidCheck1"
-                                    name="access_rights_games" value="1"
-                                    {{ isset($detailAccess) && $detailAccess->games == 1 ? 'checked' : (!isset($detailAccess) ? 'checked' : '') }}>
+                                    name="access_rights_voucher" value="1"
+                                    {{ isset($detailAccess) && $detailAccess->voucher == 1 ? 'checked' : (!isset($detailAccess) ? 'checked' : '') }}>
                                 <label class="form-check-label" for="invalidCheck1">
-                                    Daftar Game
+                                    Daftar Voucher
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="invalidCheck1"
-                                    name="access_rights_providers" value="1"
-                                    {{ isset($detailAccess) && $detailAccess->providers == 1 ? 'checked' : (!isset($detailAccess) ? 'checked' : '') }}>
+                                    name="access_rights_gift" value="1"
+                                    {{ isset($detailAccess) && $detailAccess->gift == 1 ? 'checked' : (!isset($detailAccess) ? 'checked' : '') }}>
                                 <label class="form-check-label" for="invalidCheck1">
-                                    Daftar Provider
+                                    Daftar Hadiah
                                 </label>
                             </div>
                         </div>

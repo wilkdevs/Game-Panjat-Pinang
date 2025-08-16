@@ -34,8 +34,8 @@ class RegisterController extends Controller
         DB::table('access_rights')->insert([
             'id' => Uuid::uuid4()->toString(),
             'admin_id' => $adminId,
-            'games' => 1,
-            'providers' => 1,
+            'voucher' => 1,
+            'gift' => 1,
             'settings' => 1,
             'admin_staff' => 1
         ]);

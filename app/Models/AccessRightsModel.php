@@ -16,8 +16,8 @@ class AccessRightsModel extends Model
     protected $fillable = [
         'id',
         'admin_id',
-        'games',
-        'providers',
+        'voucher',
+        'gift',
         'settings',
         'admin_staff'
     ];

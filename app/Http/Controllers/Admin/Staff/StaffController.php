@@ -99,8 +99,8 @@ class StaffController extends Controller
         $accessRights = [
             "id" => Uuid::uuid4()->toString(),
             "admin_id" => $adminId,
-            "games" => (!isset($data['access_rights_games'])) ? 0 : $data['access_rights_games'],
-            "providers" => (!isset($data['access_rights_providers'])) ? 0 : $data['access_rights_providers'],
+            "voucher" => (!isset($data['access_rights_voucher'])) ? 0 : $data['access_rights_voucher'],
+            "gift" => (!isset($data['access_rights_gift'])) ? 0 : $data['access_rights_gift'],
             "settings" => (!isset($data['access_rights_settings'])) ? 0 : $data['access_rights_settings'],
             "admin_staff" => (!isset($data['access_rights_admin_staff'])) ? 0 : $data['access_rights_admin_staff']
         ];
@@ -149,8 +149,8 @@ class StaffController extends Controller
         $accessRights = [
             "id" => Uuid::uuid4()->toString(),
             "admin_id" => $adminId,
-            "games" => (!isset($data['access_rights_games'])) ? 0 : $data['access_rights_games'],
-            "providers" => (!isset($data['access_rights_providers'])) ? 0 : $data['access_rights_providers'],
+            "voucher" => (!isset($data['access_rights_voucher'])) ? 0 : $data['access_rights_voucher'],
+            "gift" => (!isset($data['access_rights_gift'])) ? 0 : $data['access_rights_gift'],
             "settings" => (!isset($data['access_rights_settings'])) ? 0 : $data['access_rights_settings'],
             "admin_staff" => (!isset($data['access_rights_admin_staff'])) ? 0 : $data['access_rights_admin_staff']
         ];

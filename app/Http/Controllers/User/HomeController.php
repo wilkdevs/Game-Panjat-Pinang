@@ -26,10 +26,11 @@ class HomeController extends Controller
             $voucher = VoucherModel::with('gift')->where('code', $code)->where('status', 'pending')->first();
 
             if ($voucher) {
+
                 $voucher->status = "claimed";
 
                 if (!isset($voucher->gift_id)) {
-                    // Get all gifts with a probability greater than 0
+
                     $giftsWithProbability = GiftModel::with('category')
                         ->where('probability', '>', 0)
                         ->whereNull('deleted_at')
@@ -37,33 +38,20 @@ class HomeController extends Controller
                         ->orderBy('created_at')
                         ->get();
 
-                    // Calculate the total probability of all available gifts
-                    $totalProbability = $giftsWithProbability->sum('probability');
+                    foreach ($giftsWithProbability as $key => $item) {
 
-                    // If there are no gifts with probability > 0, we can't assign one
-                    if ($totalProbability > 0) {
-                        // Generate a random number between 0 and the total probability
-                        $randomNumber = mt_rand(0, $totalProbability);
-                        $cumulativeProbability = 0;
-                        $assignedGift = null;
+                        $probability =  $item->probability;
 
-                        // Loop through the gifts to find the winning gift
-                        foreach ($giftsWithProbability as $gift) {
-                            $cumulativeProbability += $gift->probability;
-                            if ($randomNumber <= $cumulativeProbability) {
-                                $assignedGift = $gift;
-                                break; // Stop the loop once a gift is found
-                            }
+                        for ($i = 0; $i < $probability; $i++) {
+                            $options[] = $key;
                         }
-
-                        // If a gift was successfully assigned, link it to the voucher
-                        if ($assignedGift) {
-                            $voucher->gift_id = $assignedGift->id;
-                        }
-                    } else {
-                        session()->flash('error', 'Kuota hadiah telah habis.');
-                        return redirect()->back();
                     }
+
+                    $indexChoosen = $options[rand(0, (count($options) - 1))];
+
+                    $gift_choosen = $giftsWithProbability[$indexChoosen];
+
+                    $voucher->gift_id = $gift_choosen->id;
                 }
 
                 $voucher->save();
