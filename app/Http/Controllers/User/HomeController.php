@@ -91,8 +91,6 @@ class HomeController extends Controller
 
         $voucher->gift = $gift;
 
-        dd($voucher->gift); // but not here
-
         return view('/pages/user/index', [
             'title' => $title,
             'metatag' => $metatag,
