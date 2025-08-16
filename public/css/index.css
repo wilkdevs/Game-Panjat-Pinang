@@ -1,0 +1,648 @@
+/* Basic reset and font setup */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 8px; /* Set a consistent, thinner width */
+    height: 8px;
+}
+
+/* The thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* A neutral color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* The thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker color on hover */
+}
+
+/* The track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light gray background */
+}
+
+/* This wrapper will center the mobile-sized container on the page */
+.mobile-view-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* The original container, now styled to look like a mobile screen */
+.container {
+    max-width: 420px; /* Typical mobile width */
+    width: 100%;
+    height: 90vh; /* Responsive height */
+    max-height: 800px; /* Max height for larger screens */
+    background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent background for content readability */
+    backdrop-filter: blur(10px);
+    border-radius: 2rem; /* Rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+    overflow: hidden; /* Hide anything that spills out */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Hide the large hand image as it might not fit the new compact layout */
+.background-completion {
+    display: none;
+}
+
+/* Adjustments for elements inside the container */
+.main-content {
+    width: 100%;
+    text-align: center;
+}
+
+.logo-section img {
+    width: 200px !important; /* Slightly smaller logo */
+    height: auto;
+    margin-bottom: 30px;
+}
+
+/* Terms Button */
+.terms-btn {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    font-size: 12px;
+}
+
+.terms-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.terms-btn i {
+    margin-right: 8px;
+}
+
+/* Logo Section Update */
+.logo-section {
+    margin-bottom: -14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the new card-like container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-form {
+    background: rgba(255, 255, 255, 0.5); /* Slightly transparent white */
+    backdrop-filter: blur(5px); /* Adds a cool glass-like effect */
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px; /* Limits width on larger screens */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle light border */
+}
+
+/* Enhancing the subtitle */
+.subtitle {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Input Group Styling */
+.input-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    flex-grow: 1; /* Makes the input field take up available space */
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 2px #fff;
+}
+
+/* Button Styling */
+.submit-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #ff5722; /* A vibrant orange */
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submit-btn:hover {
+    background: #e64a19;
+    transform: translateY(-2px);
+}
+
+/* Action Buttons Section */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between the buttons */
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.action-btn.primary {
+    background: #ff9800; /* Another vibrant orange */
+    color: white;
+}
+
+.action-btn.secondary {
+    background: #607d8b; /* A darker, professional color */
+    color: white;
+}
+
+/* Divider for visual separation */
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+/* Modal Overlay Styles */
+.terms-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark, semi-transparent overlay */
+    display: flex; /* Use flexbox to easily center the modal */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.terms-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content Styles */
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh; /* Limits the modal height for smaller screens */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ensures content doesn't spill out of the rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.terms-modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+/* Modal Header Styles (already present, just improved) */
+.modal-header {
+    padding: 25px 30px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+}
+
+.modal-header h3 {
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* Modal Body Styles */
+.modal-body {
+    padding: 20px 30px;
+    overflow-y: auto; /* Adds a scrollbar for long content */
+    flex-grow: 1;
+}
+
+.terms-content {
+    color: #333; /* Darker text for readability */
+    line-height: 1.6;
+}
+
+.terms-content p, .terms-content ul, .terms-content ol {
+    margin-bottom: 1rem;
+}
+
+.terms-content ul, .terms-content ol {
+    padding-left: 20px;
+}
+
+/* Styling for the full-screen loading overlay */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Dark semi-transparent background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999; /* Ensure it's on top of other content */
+}
+
+/* Styling for the loading bar */
+.loading-bar {
+    width: 250px;
+    height: 8px;
+    background-color: #555;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.loading-bar .progress {
+    height: 100%;
+    width: 0%;
+    background-color: #fff; /* White progress bar */
+    transition: width 0.1s linear; /* Add a smooth transition */
+}
+
+/* Styling for the loading message */
+.loading-message {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Prize Display Section */
+.prize-display {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem !important;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+}
+
+/* Main Container for all images and the spinning logic */
+.prize-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 20px;
+}
+
+/* Main Spinning Wheel */
+.main-prize-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.spin-wheel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Container for all surrounding gifts */
+.surrounding-gifts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Individual gift styling */
+.surrounding-gift {
+    position: absolute;
+    width: 15%;
+    aspect-ratio: 1 / 1;
+    transform-origin: 50% 50%;
+}
+
+/* CSS Animations */
+@keyframes spin-clockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-counter-clockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Classes controlled by JavaScript */
+.spinning-clockwise {
+    animation: spin-clockwise 3s linear infinite;
+}
+
+.spinning-counter-clockwise {
+    animation: spin-counter-clockwise 3s linear infinite;
+}
+
+/* Modal Styling (using same styles as the Terms modal) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.prize-details {
+    text-align: center;
+}
+
+.prize-image {
+    max-width: 150px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.action-buttons-group {
+    display: flex;
+    gap: 15px; /* Adjust spacing as needed */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+    justify-content: center;
+}
+
+/* Modal Overlay and Content (already good, just for completeness) */
+.prize-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.prize-modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.prize-modal-content {
+    background: #ffffff; /* Use a clean white background */
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    max-width: 90%;
+    max-height: 85%; /* Slightly larger for more content */
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* A nice, subtle shadow */
+}
+
+.prize-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* New: Improved Category Group and Header */
+.category-group {
+    margin-bottom: 30px; /* More space between groups */
+}
+
+.category-header {
+    font-size: 1.5rem; /* Larger font size for the header */
+    font-weight: 700; /* Bolder font weight */
+    color: #2c3e50; /* A dark, professional color */
+    background-color: #f8f9fa; /* A subtle, light gray background */
+    padding: 15px 20px; /* Generous padding for a 'header' feel */
+    border-radius: 8px; /* Rounded corners for the header */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Improved Gift Grid */
+.gift-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); /* Slightly larger cards */
+    gap: 20px; /* More space between cards */
+}
+
+/* New: Improved Gift Card Design */
+.gift-card {
+    text-align: center;
+    background: #ffffff; /* White background for the card */
+    border: 1px solid #e9ecef; /* A light border */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* A soft shadow for depth */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions */
+}
+
+.gift-card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Increase shadow on hover */
+}
+
+.gift-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.gift-name {
+    font-size: 1em;
+    font-weight: 600;
+    color: #34495e;
+    word-break: break-word;
+    margin: 0; /* Remove default margin */
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border: none; /* Remove default button border */
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2c3e50;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.category-header:hover {
+    background-color: #e9ecef;
+}
+
+/* New: Styles for the collapsible content */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.collapsible-content.active {
+    /* When active, set max-height to a value larger than the content to show it */
+    max-height: 1000px;
+    padding: 20px 10px; /* Add padding to the content when active */
+}
+
+/* New: Icon rotation */
+.category-header .fa-chevron-down {
+    transition: transform 0.4s ease;
+}
+
+.category-header.active .fa-chevron-down {
+    transform: rotate(-180deg);
+}
+
+@media (max-width: 768px) {
+    .mobile-view-wrapper {
+        min-height: 100%;
+        padding: 0rem;
+    }
+
+    .container {
+        max-width: 100wh;
+        width: 100wh;
+        height: 100vh;
+        max-height: 100vh; /* Max height for larger screens */
+        border: 0px solid rgba(255, 255, 255, 0.18);
+        border-radius: 0rem; /* Rounded corners */
+    }
+
+    .card-form {
+        max-width: 90%; /* For mobile, set it to 90% of the screen width */
+    }
+
+    /* You can also keep the reduced padding and other mobile-friendly styles */
+    .card-form {
+        padding: 20px;
+    }
+}
