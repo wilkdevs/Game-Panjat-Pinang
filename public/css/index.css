@@ -4,7 +4,6 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    color: #fff;
 }
 
 /* For WebKit browsers (Chrome, Safari, Edge) */
@@ -129,7 +128,7 @@ html, body {
     backdrop-filter: blur(5px); /* Adds a cool glass-like effect */
     border-radius: 20px;
     padding: 30px;
-    width: 100%;
+    width: 85%;
     max-width: 500px; /* Limits width on larger screens */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3); /* subtle light border */
@@ -390,6 +389,17 @@ html, body {
     margin-bottom: 20px;
 }
 
+.prize-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    padding: 10px 20px; /* Optional: Add padding for better readability */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
 /* Main Spinning Wheel */
 .main-prize-ring {
     position: absolute;
@@ -641,12 +651,4 @@ html, body {
         border-radius: 0rem; /* Rounded corners */
     }
 
-    .card-form {
-        max-width: 90%; /* For mobile, set it to 90% of the screen width */
-    }
-
-    /* You can also keep the reduced padding and other mobile-friendly styles */
-    .card-form {
-        padding: 20px;
-    }
 }
