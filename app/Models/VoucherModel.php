@@ -27,6 +27,6 @@ class VoucherModel extends Model
 
     public function gift()
     {
-        return $this->belongsTo(GiftModel::class, 'gift_id')->withTrashed();
+        return $this->belongsTo(GiftModel::class, 'gift_id');
     }
 }
