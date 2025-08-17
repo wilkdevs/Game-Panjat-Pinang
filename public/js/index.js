@@ -15,7 +15,7 @@ function closeTerms() {
 }
 
 function loadImageWithProgress(imageUrl, callback) {
-    loadingContainer.style.display = 'flex';
+    // loadingContainer.style.display = 'flex';
 
     let progress = 0;
     const interval = setInterval(() => {
@@ -89,6 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const prizeName = document.getElementById('prize-name');
     const prizeDesc = document.getElementById('prize-desc');
 
+    const voucherUserName = document.getElementById('voucher-username');
+    const voucherCode = document.getElementById('voucher-code');
+
     // Function to position gifts in a circle
     function positionGifts() {
         const totalGifts = gifts.length;
@@ -131,6 +134,9 @@ document.addEventListener('DOMContentLoaded', function() {
             prizeImage.src = voucher.gift.image;
             prizeName.textContent = voucher.gift.name;
             // prizeDesc.textContent = voucher.description;
+
+            voucherUserName.textContent = "Username: " + (voucher.name ? voucher.name : "-");
+            voucherCode.textContent = "Kode Tiket: " + voucher.code.toUpperCase();
 
             prizeModal.classList.add('active');
         }, 3000); // 3 seconds

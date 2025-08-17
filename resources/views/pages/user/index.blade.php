@@ -35,7 +35,10 @@
 </head>
 <body>
     <div class="mobile-view-wrapper">
-        <div class="container" style="background-image: url('{{ $settings['previewGameImage'] }}'); background-size: 100% 100%; background-repeat: no-repeat; background-position: center center;">
+        <div class="container" style="background-image: url('{{ isset($voucher) ? $settings['backgroundImageGame'] : $settings['previewGameImage'] }}');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;">
             <!-- All your original content is now inside this styled container -->
             <button class="terms-btn" onclick="showTerms()">
                 <i class="fas fa-info-circle"></i>
@@ -79,11 +82,13 @@
                         </div>
                         <div class="modal-body prize-details">
                             <img id="prize-image" src="" alt="Your Prize" class="prize-image">
-                            <h4 id="prize-name"></h4>
+                            <h3 id="prize-name"></h3>
                             <p id="prize-desc"></p>
 
                             <div class="claim-instruction">
                                 <p>Silakan **screenshot halaman ini** dan kirimkan ke Admin untuk klaim hadiahmu!</p>
+                                <h3 id="voucher-username" class="m-0 p-0"></h3>
+                                <h3 id="voucher-code" class="m-0 p-0"></h3>
                                 <a href="{{ $settings['adminLink'] }}" class="action-btn primary" target="_blank">
                                     <i class="fas fa-paper-plane"></i>
                                     <span>Kirim ke Admin</span>
@@ -211,7 +216,7 @@
         var prizes = @json($gifts);
     </script>
     <script src="js/utils.js"></script>
-    <script src="js/index.js?v=12"></script>
+    <script src="js/index.js?v=14"></script>
 
     @if(session()->has('success'))
         <script type="text/javascript">
